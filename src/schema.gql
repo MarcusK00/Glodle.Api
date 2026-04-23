@@ -40,11 +40,20 @@ type Country {
   wine_consumption: Float
 }
 
+type CountryMetric {
+  country: String!
+  label: String!
+  unit: String
+  value: Float
+}
+
 type Query {
   countries: [Country!]!
   country(name: String!): Country
+  countryMetric(metric: String!, name: String!): CountryMetric
   ping: String!
   questions: [Question!]!
+  randomQuestion: Question
 }
 
 type Question {
