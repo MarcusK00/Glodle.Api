@@ -130,3 +130,18 @@ export class Question {
   is_active!: boolean;
 }
 
+@ObjectType()
+export class CountryMetric {
+  @Field()
+  country!: string;
+
+  @Field(() => Float, { nullable: true })
+  value!: number;
+
+  @Field({ nullable: true })
+  unit!: string;
+
+  @Field()
+  label!: string;
+}
+
