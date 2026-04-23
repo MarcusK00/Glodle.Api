@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Country {
+  air_pollution_pm25: Float
+  area_km2: Float
+  avg_age: Float
+  avg_height_cm: Float
+  avg_house_price: Float
+  avg_monthly_salary: Float
+  avg_temperature: Float
+  beer_consumption: Float
+  big_mac_price: Float
+  birth_rate: Float
+  chocolate_consumption: Float
+  coffee_consumption: Float
+  cost_of_living_index: Float
+  flag_url: String
+  gasoline_price: Float
+  gold_reserves: Float
+  happiness_score: Float
+  highest_peak_m: Float
+  house_price_income_ratio: Float
+  id: String!
+  life_expectancy: Float
+  military_budget: Float
+  minimum_wage: Float
+  name: String!
+  num_airports: Float
+  num_billionaires: Float
+  num_mcdonalds: Float
+  obesity_rate: Float
+  olympic_medals_total: Float
+  population: Int
+  region: String
+  road_length_km: Float
+  tourist_arrivals: Float
+  unemployment_rate: Float
+  wine_consumption: Float
+}
+
+type Query {
+  countries: [Country!]!
+  country(name: String!): Country
+  ping: String!
+  questions: [Question!]!
+}
+
+type Question {
+  column_key: String
+  display_format: String
+  id: String!
+  is_active: Boolean
+  label: String!
+  unit: String
+}
