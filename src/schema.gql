@@ -51,7 +51,6 @@ type Query {
   countries: [Country!]!
   country(name: String!): Country
   countryMetric(metric: String!, name: String!): CountryMetric
-  ping: String!
   questions: [Question!]!
   randomQuestion: Question
 }

@@ -8,11 +8,6 @@ import { CountryMetric } from './game.dto';
 export class GameResolver {
   constructor(private gameService: GameService) {}
 
-  @Query(() => String)
-  async ping(): Promise<string> {
-    return 'pong';
-  }
-
   @Query(() => [Country])
   async countries(): Promise<Country[]> {
     return this.gameService.getCountries();

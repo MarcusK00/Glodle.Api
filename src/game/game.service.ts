@@ -12,8 +12,6 @@ export class GameService {
   
   constructor(private supabase: SupabaseService) {}
 
-  
-
   async getCountries(): Promise<Country[]> {
     const result = await this.supabase.getPool().query('SELECT * FROM countries');
     return result.rows;
@@ -33,8 +31,7 @@ export class GameService {
 }
 
 async getCountryMetric(
-  countryName: string,
-  metricKey: string,
+  countryName: string, metricKey: string,
 ): Promise<CountryMetric | null> {
 
   const questionRes = await this.supabase.getPool().query(
@@ -43,7 +40,6 @@ async getCountryMetric(
      WHERE column_key = $1`,
     [metricKey],
   );
-
   const question = questionRes.rows[0];
   if (!question) return null;
 
@@ -82,8 +78,6 @@ const allowedColumns = [
   'avg_height_cm',
   'chocolate_consumption',
 ];
-
-
   if (!allowedColumns.includes(column)) {
     throw new Error(`Invalid metric: ${column}`);
   }
