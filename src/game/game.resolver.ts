@@ -2,7 +2,7 @@ import { Resolver, Query, Args } from '@nestjs/graphql';
 import { GameService } from './game.service';
 import { Country } from './game.dto';
 import { Question } from './game.dto';
-import { CountryMetric } from './game.dto';
+import { CountryMetric, Round } from './game.dto';
 
 @Resolver()
 export class GameResolver {
@@ -34,6 +34,14 @@ async countryMetric(
 @Query(()=> Question, {nullable:true})
 async randomQuestion(): Promise<Question | null>{
   return this.gameService.getRandomQuestion();
+}
+
+@Query(()=> Round, {nullable:true})
+async randomRound(): Promise<Round |null>{
+  const question = await this.gameService.getRandomQuestion();
+  if(!question)return null
+  const countries = await this.gameService.getTwoRandomCountriesWithMetric(question.column_key,question.unit,question.label);
+  return {countries, question};
 }
 
   

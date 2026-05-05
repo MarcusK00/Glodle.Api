@@ -42,6 +42,7 @@ type Country {
 
 type CountryMetric {
   country: String!
+  flag_url: String
   label: String!
   unit: String
   value: Float
@@ -53,6 +54,7 @@ type Query {
   countryMetric(metric: String!, name: String!): CountryMetric
   questions: [Question!]!
   randomQuestion: Question
+  randomRound: Round
 }
 
 type Question {
@@ -62,4 +64,9 @@ type Question {
   is_active: Boolean
   label: String!
   unit: String
+}
+
+type Round {
+  countries: [CountryMetric!]!
+  question: Question!
 }

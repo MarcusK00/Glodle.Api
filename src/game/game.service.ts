@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
-import { Country } from './game.dto';
+import { Country, Round } from './game.dto';
 import { Question } from './game.dto';
 import { CountryMetric } from './game.dto';
 import { randomInt } from 'crypto';
@@ -105,5 +105,21 @@ async getRandomQuestion(): Promise<Question|null>{
   const result = await this.supabase.getPool().query('SELECT * FROM questions ORDER BY RANDOM() LIMIT 1');
   return result.rows[0] ?? null;
 }
+
+async getTwoRandomCountriesWithMetric(metric: string, unit: string, label: string): Promise<CountryMetric[]> {
+  
+  const result = await this.supabase.getPool().query(
+  `SELECT name, flag_url, ${metric} AS metric_value FROM countries ORDER BY RANDOM() LIMIT 2`
+);
+return result.rows.map(row => ({
+  country: row.name,
+  flag_url: row.flag_url,
+  value: row.metric_value,
+  unit,
+  label,
+}));  
+}
+
+
   
 }

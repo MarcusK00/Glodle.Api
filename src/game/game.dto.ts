@@ -104,10 +104,23 @@ export class CountryMetric {
   @Field(() => Float, { nullable: true })
   value!: number;
 
+    @Field({ nullable: true })
+  flag_url?: string;
+
   @Field({ nullable: true })
   unit!: string;
 
   @Field()
   label!: string;
+}
+
+@ObjectType()
+export class Round{
+  @Field(() => [CountryMetric])
+  countries!: CountryMetric[];
+
+  @Field()
+  question!:Question;
+
 }
 
