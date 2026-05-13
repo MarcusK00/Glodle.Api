@@ -23,6 +23,44 @@ A NestJS + Apollo GraphQL API that powers the Glodle game. It serves country dat
 - **Supabase**
 - **TypeScript**
 
+## 📊 Country Metrics
+
+The API exposes a wide range of country metrics. These are backed by the `questions` table and map directly to columns in the `countries` table. Each metric includes a label, a column key, and a unit (when applicable).
+
+| Label | column_key | Unit | Display Format |
+|---|---|---|---|
+| Military Budget | `military_budget` | `$` | `billion` |
+| Population | `population` | *(none)* | `million` |
+| Average Age | `avg_age` | `years` | `raw` |
+| Beer Consumption | `beer_consumption` | `L/cap` | `raw` |
+| Happiness Score | `happiness_score` | `/10` | `raw` |
+| Land Area | `area_km2` | `km²` | `raw` |
+| Number of Billionaires | `num_billionaires` | *(none)* | `raw` |
+| Minimum Wage | `minimum_wage` | `$/mo` | `raw` |
+| Cost of a Big Mac | `big_mac_price` | `$` | `raw` |
+| Average House Price | `avg_house_price` | `$k` | `raw` |
+| Unemployment Rate | `unemployment_rate` | `%` | `raw` |
+| Life Expectancy | `life_expectancy` | `years` | `raw` |
+| Birth Rate | `birth_rate` | `/1000` | `raw` |
+| Average Temperature | `avg_temperature` | `°C` | `raw` |
+| Tourist Arrivals per Year | `tourist_arrivals` | `M` | `raw` |
+| Obesity Rate | `obesity_rate` | `%` | `raw` |
+| Road Network Length | `road_length_km` | `km` | `raw` |
+| Number of Airports | `num_airports` | *(none)* | `raw` |
+| Average Monthly Salary | `avg_monthly_salary` | `$` | `raw` |
+| Cost of Living Index | `cost_of_living_index` | *(none)* | `raw` |
+| House Price-to-Income Ratio | `house_price_income_ratio` | `x` | `raw` |
+| Gasoline Price | `gasoline_price` | `$/L` | `raw` |
+| Gold Reserves | `gold_reserves` | `t` | `raw` |
+| Highest Mountain Peak | `highest_peak_m` | `m` | `raw` |
+| Coffee Consumption | `coffee_consumption` | `kg/cap` | `raw` |
+| Wine Consumption | `wine_consumption` | `L/cap` | `raw` |
+| All-Time Olympic Medals | `olympic_medals_total` | *(none)* | `raw` |
+| McDonald's Locations | `num_mcdonalds` | *(none)* | `raw` |
+| Average Height (Men) | `avg_height_cm` | `cm` | `raw` |
+| Chocolate Consumption | `chocolate_consumption` | `kg/cap` | `raw` |
+| Air Pollution | `air_pollution_pm25` | `μg/m³` | `raw` |
+
 ## 🚀 Getting Started
 
 ### 1) Install dependencies
