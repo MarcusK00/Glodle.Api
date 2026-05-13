@@ -61,6 +61,44 @@ The API exposes a wide range of country metrics. These are backed by the `questi
 | Chocolate Consumption | `chocolate_consumption` | `kg/cap` | `raw` |
 | Air Pollution | `air_pollution_pm25` | `μg/m³` | `raw` |
 
+🌍 Countries in the Database
+
+The current dataset includes the following countries:
+
+    United States
+    China
+    Russia
+    India
+    United Kingdom
+    Germany
+    France
+    Japan
+    South Korea
+    Saudi Arabia
+    Australia
+    Canada
+    Italy
+    Brazil
+    Spain
+    Poland
+    Netherlands
+    Turkey
+    Norway
+    Sweden
+    Denmark
+    Singapore
+    Pakistan
+    Indonesia
+    Mexico
+    Argentina
+    South Africa
+    Nigeria
+    Egypt
+    Thailand
+    Ukraine
+    Israel
+
+
 ## 🚀 Getting Started
 
 ### 1) Install dependencies
@@ -140,18 +178,9 @@ query {
 }
 ```
 
-## 📁 Project Structure
-```
-src/
-  game/          # Game-related resolvers, services, DTOs
-  supabase/      # Database connection via pg
-  schema.gql     # Auto-generated GraphQL schema
-```
 
-## 🧪 Scripts
+## Start
 ```sh
 npm run start:dev   # watch mode
 npm run start       # normal start
-npm run test        # unit tests
-npm run lint        # lint + fix
 ```
