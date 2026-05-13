@@ -5,16 +5,115 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
+# Country Data GraphQL API for Glodle
 
+A NestJS + Apollo GraphQL API that powers the Glodle game. It serves country data, trivia-style questions, and randomized “rounds” pulled from a PostgreSQL database (via Supabase).
+
+## ✨ Features
+- **GraphQL API** with auto-generated schema
+- **Country & question data** stored in PostgreSQL
+- **Random question + round generation** for gameplay
+- **Apollo Server** integration via NestJS
+- **Supabase-compatible** connection (uses `DATABASE_URL`)
+
+## 🧱 Tech Stack
+- **NestJS**
+- **Apollo GraphQL**
+- **PostgreSQL**
+- **Supabase**
+- **TypeScript**
+
+## 🚀 Getting Started
+
+### 1) Install dependencies
+```sh
+npm install
+```
+
+### 2) Set environment variables
+Create a `.env` file in the project root:
+
+```
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
+```
+
+> The API uses `DATABASE_URL` to connect via `pg`.
+
+### 3) Run the server
+```sh
+npm run start:dev
+```
+
+Server will start on:
+
+```
+http://localhost:3000
+```
+
+GraphQL playground is typically available at:
+
+```
+http://localhost:3000/graphql
+```
+
+## 📌 GraphQL Queries
+
+### Get a random round
+```graphql
+query {
+  randomRound {
+    question {
+      label
+      unit
+      column_key
+    }
+    countries {
+      country
+      value
+      flag_url
+      label
+      unit
+    }
+  }
+}
+```
+
+### Get all countries
+```graphql
+query {
+  countries {
+    name
+    population
+    region
+    flag_url
+  }
+}
+```
+
+### Get questions
+```graphql
+query {
+  questions {
+    id
+    label
+    column_key
+    unit
+  }
+}
+```
+
+## 📁 Project Structure
+```
+src/
+  game/          # Game-related resolvers, services, DTOs
+  supabase/      # Database connection via pg
+  schema.gql     # Auto-generated GraphQL schema
+```
+
+## 🧪 Scripts
+```sh
+npm run start:dev   # watch mode
+npm run start       # normal start
+npm run test        # unit tests
+npm run lint        # lint + fix
+```
